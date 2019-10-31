@@ -7,7 +7,7 @@
 
 
 # pull base image
-FROM alpine:3.8
+FROM python:2.7-alpine
 
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
@@ -17,7 +17,7 @@ RUN echo "===> Installing sudo to emulate normal OS behavior..."  && \
     \
     \
     echo "===> Adding Python runtime..."  && \
-    apk --update add python2.7 py-pip openssl ca-certificates    && \
+    apk --update add py-pip openssl ca-certificates    && \
     apk --update add --virtual build-dependencies \
                 python-dev libffi-dev openssl-dev build-base  && \
     pip install --upgrade pip cffi                            && \
